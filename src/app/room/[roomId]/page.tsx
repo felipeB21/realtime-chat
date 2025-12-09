@@ -21,6 +21,7 @@ import { api } from "@/lib/client";
 import { useUsername } from "@/hooks/use-username";
 import { format } from "date-fns";
 import { useRealtime } from "@/lib/realtime-client";
+import { Message } from "@/lib/realtime";
 
 function formatTimeRemaining(seconds: number) {
   const mins = Math.floor(seconds / 60);
@@ -212,7 +213,7 @@ export default function Page() {
           </div>
         )}
 
-        {messages?.messages.map((msg) => (
+        {messages?.messages.map((msg: Message) => (
           <div key={msg.id} className="flex flex-col items-start">
             <div className="max-w-[80%] group">
               <div className="flex items-baseline gap-3 mb-1">
